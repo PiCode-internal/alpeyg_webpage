@@ -289,6 +289,9 @@
   .footer_content_div{
     gap:0px
   }
+  .second_footer_div{
+    width: 480px
+  }
 }
 
 @media screen and (max-width : 450px) {
