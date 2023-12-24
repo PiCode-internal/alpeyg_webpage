@@ -10,8 +10,9 @@ import phone from "../images/phone.png";
 import { useWindowDimensions } from '../common';
 
 const Home = () => {
-  const {width} = useWindowDimensions();
+  const { width } = useWindowDimensions();
   let show = width > 767;
+  let showStar = width > 575;
 
   const handleAboutSection = () => {
     const applySection = document.getElementById("about_section");
@@ -38,7 +39,11 @@ const Home = () => {
             <div className='col-12 first_main_Section'>
               <div className='main_heading'>
                 <div className='star_div'>
-                  <img src={starImg} className='starImg' alt="starImg" />
+                  {
+                    showStar ?
+                      <img src={starImg} className='starImg' alt="starImg" />
+                      : ""
+                  }
                 </div>
                 <h1 className='title'> Elevating lives ! </h1>
               </div>
@@ -51,15 +56,15 @@ const Home = () => {
                     for large audience throughout the world.
                   </p>
                   :
-                  <p className='deatils_text'>Founded in 2021 in Luxemburg, at the heart of continental Europe, 
+                  <p className='deatils_text'>Founded in 2021 in Luxemburg, at the heart of continental Europe,
                     Alpeyg is a partnership company limited by shares, <br />
-                    which creates, develops, and commercializes online services 
+                    which creates, develops, and commercializes online services
                     for large audience throughout the world.
                   </p>
               }
 
               <div className='contact_us_btn_div'>
-                <button className='contact_us'  type="button" onClick={() => handleContactSection()}>Contact Us</button>
+                <button className='contact_us' type="button" onClick={() => handleContactSection()}>Contact Us</button>
               </div>
             </div>
           </div>
@@ -97,8 +102,7 @@ const Home = () => {
                     <span className='about_span_text'> Personalization of our services </span> while abiding by the strictest international rules
                     in terms of personal data management, enable us to propose
                     the best to our users at <span className='about_span_text'> most affordable price </span>   while giving assurance
-                    to our users will always be the most revered stakeholders, <img src={starImg} className='starImg_about' alt="starImg" /><br />
-                    without ever becoming or treated as a product.</p>
+                    to our users will always <br /> be the most revered stakeholders,without ever becoming or treated as a product.</p>
                   <p className='about_detail'>
                     Our very first product is a mobile application
                     that aims at elevating the lives of its users,
@@ -117,7 +121,7 @@ const Home = () => {
         <div className='container'>
           <div className='row'>
             <div className='col-12 footer_content_div' id={"contact_section"}>
-              <div className='col-lg-4 first_footer_div'>
+              <div className='col-lg-4 first_footer_div order-logo'>
                 <div className='footer_logo_div'>
 
                   <img className='logo_footer' src={logo} alt="logo" />
@@ -131,12 +135,12 @@ const Home = () => {
                   <p>+33 7 69479878</p>
                 </div>
               </div>
-              <div className='second_footer_div'>
+              <div className='second_footer_div order-email'>
                 <h4 className='link_title'>Links</h4>
-                <div className='mt-4'>
+                <div className='links'>
                   <Link to="/" className='linkk'><p className='footer_links '>Home</p></Link>
                   <a href='/' className='linkk'><p className='footer_links'>About us</p></a>
-                  <a href='/' className='linkk'><p className='footer_links'>Bookings</p></a>
+                  {/* <a href='/' className='linkk'><p className='footer_links'>Bookings</p></a> */}
                 </div>
               </div>
             </div>
